@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/drew-site/static/css/main.5f361e03.chunk.css",
+    "main.js": "/drew-site/static/js/main.7f5e3aee.chunk.js",
+    "main.js.map": "/drew-site/static/js/main.7f5e3aee.chunk.js.map",
+    "runtime-main.js": "/drew-site/static/js/runtime-main.1d1a69fb.js",
+    "runtime-main.js.map": "/drew-site/static/js/runtime-main.1d1a69fb.js.map",
+    "static/js/2.32f44ff1.chunk.js": "/drew-site/static/js/2.32f44ff1.chunk.js",
+    "static/js/2.32f44ff1.chunk.js.map": "/drew-site/static/js/2.32f44ff1.chunk.js.map",
+    "index.html": "/drew-site/index.html",
+    "precache-manifest.63a98b695941778b30b440847665e064.js": "/drew-site/precache-manifest.63a98b695941778b30b440847665e064.js",
+    "service-worker.js": "/drew-site/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/drew-site/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.32f44ff1.chunk.js.LICENSE.txt": "/drew-site/static/js/2.32f44ff1.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/drew-site/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1d1a69fb.js",
+    "static/js/2.32f44ff1.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.7f5e3aee.chunk.js"
+  ]
+}
