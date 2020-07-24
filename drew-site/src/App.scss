@@ -39,8 +39,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 6vh;
+  min-height: 30vh;
+  margin-top: 60px;
+  padding-left: 5vh;
+  padding-right: 5vh;
+
 
   .About-header {
     min-height: 10vh;
@@ -49,6 +52,55 @@
 
   .content{
     min-height: 20vh;
-    font-size: calc(8px + 2vmin)
+    font-size: calc(9px + 2vmin)
+  }
+}
+
+.Contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 30vh;
+  margin-top: 5vh;
+
+  .Contact-header {
+    min-height: 10vh;
+    font-size: calc(10px + 2vmin);
+  }
+
+  .content{
+    min-height: 20vh;
+    font-size: calc(8px + 2vmin);
+
+    %contact-point{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 2vh;
+
+      svg{
+        padding: 1vh;
+
+        width: 6vh;
+        height: 6vh;
+      }
+
+      p{
+        margin-bottom: 0;
+      }
+    }
+
+    .email{
+      @extend %contact-point;
+    }
+    
+    .phone{
+      @extend %contact-point;
+    }
+
+    .address{
+      @extend %contact-point
+    }
   }
 }

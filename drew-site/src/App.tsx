@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 import { Home } from "./Home";
 import { About } from "./About";
@@ -11,24 +10,10 @@ export enum Views {
   Home,
   Resume,
   About,
-  Contact,
 }
 
 export interface AppProps {
   initialState?: Views;
-}
-
-function getComponent(view: Views){
-  if(view === Views.Home){
-    return <Home />
-  }
-  else if(view === Views.About){
-    console.log("hit");
-    return <About />
-  }
-  else{
-    return <p>Couldn't find that view</p>
-  }
 }
 
 function App(props: AppProps) {
@@ -37,7 +22,6 @@ function App(props: AppProps) {
   const showHome = () =>  setViewState(Views.Home);
   const showResume = () => setViewState(Views.Resume);
   const showAbout = () => setViewState(Views.About);
-  const showContact = () => setViewState(Views.Contact);
   return (
     <div>
       <nav className="navbar navbar-default navbar-fixed-top">
@@ -68,9 +52,6 @@ function App(props: AppProps) {
               <li className={viewState === Views.About ? "active" : ""}>
                 <a onClick={showAbout}>About</a>
               </li>
-              <li className={viewState === Views.Contact ? "active" : ""}>
-                <a onClick={showContact}>Contact</a>
-              </li>
               <li className={viewState === Views.Resume ? "active" : ""}>
                 <a onClick={showResume}>Resume</a>
               </li>
@@ -78,7 +59,7 @@ function App(props: AppProps) {
           </div>
         </div>
       </nav>
-      {getComponent(viewState)}
+      {viewState === Views.Home ? <Home /> : viewState === Views.About ? <About showResume={showResume} />  : <p>In Progress</p>}
     </div>
   );
 }
