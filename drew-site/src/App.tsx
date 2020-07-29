@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Home } from "./Home";
 import { About } from "./About";
+import { Resume } from "./Resume";
 
 export enum Views {
   Home,
@@ -59,7 +60,7 @@ function App(props: AppProps) {
           </div>
         </div>
       </nav>
-      {viewState === Views.Home ? <Home /> : viewState === Views.About ? <About showResume={showResume} />  : <p>In Progress</p>}
+      {viewState === Views.Home ? <Home /> : viewState === Views.About ? <About showResume={showResume} />: viewState === Views.Resume ? <Resume /> : <p>In Progress</p>}
     </div>
   );
 }

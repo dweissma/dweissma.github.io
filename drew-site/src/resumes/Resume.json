@@ -1,0 +1,138 @@
+{
+  "Education": {
+    "School": "Indiana University",
+    "Degrees": [
+      "Bachelor of Science: Computer Science",
+      "Bachelor of Science: Biology",
+      "Bachelor of Science: Mathematics",
+      "Minor: Chemistry"
+    ],
+    "GPA": "3.98",
+    "Image":"iulogo.svg"
+  },
+
+  "Experience": [
+    {
+      "Organization": "Epic Systems",
+      "Position": "Software Development Intern",
+      "Description": "Allow Nephrologists to view relevant patient transplant information by integrating existing transplant records into the Nephrology module",
+      "ProgrammingLanguages": ["C#", "Typescript"],
+      "Image": "Epic.svg",
+      "Importance": 3
+    },
+    {
+      "Organization": "Bayesian BMD",
+      "Position": "Research Associate",
+      "Description": "Assist Prof. Kan Shao in using and refining Bayesian benchmark dose response modeling system. As well as adding features to the web-based dose response system",
+      "ProgrammingLanguages": ["Python", "Javascript"],
+      "Image": "bbmdlogo.svg",
+      "Importance": 3
+    },
+    {
+      "Organization": "Indiana University",
+      "SubOrganization": "Introduction to Artificial Intelligence",
+      "Position": "Teaching Assistant",
+      "Description": "Assist Prof. Saúl Blanco in instruction of Introduction to Artificial Intelligence, hold office hours to help students understand class material, and grade homework and exam questions",
+      "ProgrammingLanguages": ["Python"],
+      "Image": "iulogo.svg",
+      "Importance": 2
+    },
+    {
+      "Organization": "Indiana University",
+      "SubOrganization": "Quantum Computing",
+      "Position": "Research Associate",
+      "Description": "Assisted Prof. Dan German in creating and refining a new course for students in computer science on quantum computing",
+      "ProgrammingLanguages": ["Python"],
+      "Image": "iulogo.svg",
+      "Importance": 1
+    },
+    {
+      "Organization": "Indiana University",
+      "SubOrganization": "Summer Neutrino Coding Club",
+      "Position": "Member",
+      "Description": "Worked with Prof. Mark Messier to complete a rigorous curriculum introducing the basic computations used in neutrino experimentation, and mentored less experienced members in Python.",
+      "ProgrammingLanguages": ["Python"],
+      "Image": "neutrino.svg",
+      "Importance": 1
+    }
+  ],
+
+  "TechnicalSkills": {
+    "Languages": [
+      "Python",
+      "Typescript",
+      "C#",
+      "Java",
+      "Javascript",
+      "R",
+      "Lisp (Racket and Scheme)"
+    ],
+    "WebDevelopment": ["React", "Django", "Postgres", ".NET"],
+    "Misc": ["Numpy", "Scipy", "git", "docker", "qiskit"]
+  },
+
+  "Awards": [
+    {
+      "Title": "Founders Scholar",
+      "Dates": ["4/15/2018", "4/15/2019", "4/15/2020"],
+      "DateRange": false,
+      "Description": "Awarded to IU’s most academically distinguished undergraduates for maintaining a cumulative 3.8 GPA"
+    },
+    {
+      "Title": "Hutton Honors College Scholar",
+      "Dates": ["August 2017", "Present"],
+      "DateRange": true,
+      "Description": "Highly selective merit-based scholarship awarded for maintaining an excellent GPA while completing rigorous coursework through the Hutton Honors College."
+    },
+    {
+      "Title": "Indiana University College of Arts and Sciences Executive Dean’s List",
+      "Dates": ["Fall 2017", "Present"],
+      "DateRange": true,
+      "Description": "Highly selective academic distinction honoring students within the College of Arts and Sciences maintaining a 3.7 GPA while enrolled in rigorous coursework."
+    },
+    {
+      "Title": "Organic Chemistry II Student Award",
+      "Dates": ["4/15/2019"],
+      "DateRange": false,
+      "Description": "Award given to the top student in the second semester of organic chemistry lecture."
+    }
+  ],
+
+  "Activities": [
+    {
+      "Organization": "Agnes Wells Quad Student Government",
+      "Positions": [
+        {
+          "Title": "President",
+          "Date": ["Fall 2019", "Present"],
+          "DateRange":true,
+          "Description": "I led the Student Government in various funcitons, including creating enriching programs for residents of Wells Quad or elevating the concerns of community members to University staff"
+        },
+        {
+          "Title": "Vice President of Internal Affairs",
+          "Date": ["Fall 2018", "Spring 2019"],
+          "DateRange":true,
+          "Description": "I performed various administrative tasks within the Student Government in order to keep it running smoothly"
+        },
+        {
+          "Title": "Director of Programming",
+          "Date": ["Fall 2017", "Spring 2018"],
+          "DateRange":true,
+          "Description": "I created and planned social, philanthropic, and cultural events for residents of Wells Quad."
+        }
+      ]
+    },
+    {
+      "Organization": "Biology Outreach",
+      "Date": ["Spring 2018"],
+      "DateRange":false,
+      "Description": "I taught third graders biology lessons using prepared games and activities once a week."
+    },
+    {
+      "Organization": "Hutton Honors Council",
+      "Date": ["Fall 2017", "Spring 2018"],
+      "DateRange":true,
+      "Description":"I helped create enriching experiences for honors students living in Wells Quad."
+    }
+  ]
+}

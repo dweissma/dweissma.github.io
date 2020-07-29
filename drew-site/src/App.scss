@@ -104,3 +104,205 @@
     }
   }
 }
+
+.Resume{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+
+  .resume-container{
+    padding: 2vh;
+    width: 90vh;
+    min-height: 75vh;
+    margin-left: auto;
+
+    .resume-section{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      
+      .resume-section-header{
+        font-size: calc(15px + 3vmin);
+        align-self: center;
+      }
+      
+      .education-content{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        @media only screen and (max-width: 600px) {
+          flex-direction: column;
+        }
+        @media only screen and (min-width: 600px) {
+          flex-direction: row;
+        
+        }
+        
+        .left-container{
+          min-width: 10vh;
+
+          img{
+            width:16vh;
+            height:18vh;
+          }
+        }
+
+        .main-container{
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          
+          .GPA{
+            margin-left: 3vh;
+          }
+
+          .school-name{
+            margin-left: 3vh;
+          }
+
+        }
+      }
+
+      .experience-content{
+        align-items: center;
+        .buttons{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+
+          .btn{
+            margin: 1vh;
+          }
+        }
+        .experience-object{
+          display: flex;
+          align-items: center;
+        @media only screen and (max-width: 600px) {
+          flex-direction: column;
+        }
+        @media only screen and (min-width: 600px) {
+          flex-direction: row;
+        
+        }
+          
+          .left-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+  
+            @media only screen and (max-width: 600px) {
+              img{
+                min-height: 8vh;
+                max-height: 24vh;
+                width: 30vh;
+              }
+            }
+            @media only screen and (min-width: 600px) {
+              img{
+                min-height: 8vh;
+                max-height: 18vh;
+                width: 18vh;
+              }
+            }
+          }
+
+          .main-container{
+            margin: 1vh;
+          }
+        }
+      }
+
+      .technical-skills-content{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2vh;
+        font-size: calc(8px + 2vmin);
+
+        %skill-type{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+
+        .Languages{
+          @extend %skill-type;
+        }
+
+        .WebDev{
+          @extend %skill-type;
+        }
+
+        .Misc{
+          @extend %skill-type;
+        }
+
+        img{
+          padding: 1vh;
+          width: 8vh;
+          height: 8vh;
+        }
+
+        svg{
+          padding: 1vh;
+          width: 8vh;
+          height: 8vh;
+        }
+  
+        p{
+          margin-bottom: 0;
+        }
+      }
+
+      .awards-content{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2vh;
+      }
+
+
+    }
+  }
+
+  .right-container{
+    width: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    align-items: center;
+
+    .outer-jumplink{
+      width: calc(2vh + 4px);
+      height: calc(7vh + 4px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      %jumplink{
+        width: calc(1vh + 4px);
+        height: calc(6vh + 4px);
+        border: 2px solid gray;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+
+      .active-inner-jumplink{
+        @extend %jumplink;
+        background-color: gray;
+      }
+
+      .inactive-inner-jumplink{
+        @extend %jumplink;
+      }
+
+      .inactive-inner-jumplink:hover{
+        box-shadow: 0 0  0 1px gray;
+      }
+    }
+  }
+}
