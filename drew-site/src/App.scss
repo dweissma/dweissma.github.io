@@ -41,18 +41,17 @@
   justify-content: center;
   min-height: 30vh;
   margin-top: 60px;
-  padding-left: 5vh;
-  padding-right: 5vh;
-
+  padding-left: 5vw;
+  padding-right: 5vw;
 
   .About-header {
     min-height: 10vh;
     font-size: calc(10px + 2vmin);
   }
 
-  .content{
+  .content {
     min-height: 20vh;
-    font-size: calc(9px + 2vmin)
+    font-size: calc(9px + 2vmin);
   }
 }
 
@@ -69,67 +68,74 @@
     font-size: calc(10px + 2vmin);
   }
 
-  .content{
+  .content {
     min-height: 20vh;
     font-size: calc(8px + 2vmin);
 
-    %contact-point{
+    %contact-point {
       display: flex;
       flex-direction: row;
       align-items: center;
       padding: 2vh;
 
-      svg{
+      svg {
         padding: 1vh;
 
         width: 6vh;
         height: 6vh;
       }
 
-      p{
+      p {
         margin-bottom: 0;
       }
     }
 
-    .email{
-      @extend %contact-point;
-    }
-    
-    .phone{
+    .email {
       @extend %contact-point;
     }
 
-    .address{
-      @extend %contact-point
+    .phone {
+      @extend %contact-point;
+    }
+
+    .address {
+      @extend %contact-point;
     }
   }
 }
 
-.Resume{
+.Resume {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-top: 60px;
 
-  .resume-container{
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+  @media only screen and (min-width: 600px) {
+    flex-direction: row;
+  }
+  .resume-container {
     padding: 2vh;
-    width: 90vh;
+    max-width: calc(30vw + 300px);
+    min-width: 30vw;
     min-height: 75vh;
     margin-left: auto;
 
-    .resume-section{
+    .resume-section {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      
-      .resume-section-header{
+
+      .resume-section-header {
         font-size: calc(15px + 3vmin);
         align-self: center;
       }
-      
-      .education-content{
+
+      .education-content {
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -138,170 +144,212 @@
         }
         @media only screen and (min-width: 600px) {
           flex-direction: row;
-        
         }
-        
-        .left-container{
-          min-width: 10vh;
 
-          img{
-            width:16vh;
-            height:18vh;
+        .left-container {
+          min-width: 10vw;
+
+          @media only screen and (max-width: 600px) {
+            img {
+              min-height: 8vmax;
+              max-height: 24vmax;
+              width: 20vmax;
+            }
+          }
+          @media only screen and (min-width: 600px) {
+            img {
+              min-height: 8vmax;
+              max-height: 18vmax;
+              width: 8vmax;
+            }
           }
         }
 
-        .main-container{
+        .main-container {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          
-          .GPA{
-            margin-left: 3vh;
+
+          .GPA {
+            margin-left: 3vw;
           }
 
-          .school-name{
-            margin-left: 3vh;
+          .school-name {
+            margin-left: 3vw;
           }
-
         }
       }
 
-      .experience-content{
+      .experience-content {
         align-items: center;
-        .buttons{
+        .buttons {
           display: flex;
           flex-direction: row;
           justify-content: center;
 
-          .btn{
+          .btn {
             margin: 1vh;
           }
         }
-        .experience-object{
+        .experience-object {
           display: flex;
           align-items: center;
-        @media only screen and (max-width: 600px) {
-          flex-direction: column;
-        }
-        @media only screen and (min-width: 600px) {
-          flex-direction: row;
-        
-        }
-          
-          .left-container{
+          @media only screen and (max-width: 600px) {
+            flex-direction: column;
+          }
+          @media only screen and (min-width: 600px) {
+            flex-direction: row;
+          }
+
+          .left-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
-  
+
             @media only screen and (max-width: 600px) {
-              img{
-                min-height: 8vh;
-                max-height: 24vh;
-                width: 30vh;
+              img {
+                min-height: 8vmax;
+                max-height: 24vmax;
+                width: 24vmax;
               }
             }
             @media only screen and (min-width: 600px) {
-              img{
-                min-height: 8vh;
-                max-height: 18vh;
-                width: 18vh;
+              img {
+                min-height: 8vmax;
+                max-height: 18vmax;
+                width: 8vmax;
               }
             }
           }
 
-          .main-container{
+          .main-container {
             margin: 1vh;
           }
         }
       }
 
-      .technical-skills-content{
+      .technical-skills-content {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         padding: 2vh;
         font-size: calc(8px + 2vmin);
 
-        %skill-type{
+        %skill-type {
           display: flex;
           flex-direction: row;
           align-items: center;
         }
 
-        .Languages{
+        .Languages {
           @extend %skill-type;
         }
 
-        .WebDev{
+        .WebDev {
           @extend %skill-type;
         }
 
-        .Misc{
+        .Misc {
           @extend %skill-type;
         }
 
-        img{
+        img {
           padding: 1vh;
-          width: 8vh;
-          height: 8vh;
+          width: calc(4vmax + 30px);
+          height: calc(4vmax + 30px);
         }
 
-        svg{
+        svg {
           padding: 1vh;
-          width: 8vh;
-          height: 8vh;
+          width: calc(4vmax + 30px);
+          height: calc(4vmax + 30px);
         }
-  
-        p{
+
+        p {
           margin-bottom: 0;
         }
       }
 
-      .awards-content{
+      .awards-content {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 2vh;
+        padding: 2vw;
       }
-
-
     }
   }
 
-  .right-container{
-    width: 10vh;
+  .right-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    margin-left: auto;
     align-items: center;
 
-    .outer-jumplink{
-      width: calc(2vh + 4px);
-      height: calc(7vh + 4px);
-      display: flex;
+    @media only screen and (max-width: 600px) {
+      flex-direction: row;
+      width: 60vw;
+
+      .outer-jumplink {
+        width: calc(7vw + 4px);
+        height: calc(2vh + 4px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        %jumplink-wide {
+          width: calc(6vw + 4px);
+          height: calc(1vh + 4px);
+          border: 2px solid gray;
+          border-radius: 2px;
+          cursor: pointer;
+        }
+
+        .active-inner-jumplink {
+          @extend %jumplink-wide;
+          background-color: gray;
+        }
+
+        .inactive-inner-jumplink {
+          @extend %jumplink-wide;
+        }
+
+        .inactive-inner-jumplink:hover {
+          box-shadow: 0 0 0 1px gray;
+        }
+      }
+    }
+
+    @media only screen and (min-width: 600px) {
       flex-direction: column;
-      justify-content: center;
+      margin-left: auto;
+      width: 10vw;
 
-      %jumplink{
-        width: calc(1vh + 4px);
-        height: calc(6vh + 4px);
-        border: 2px solid gray;
-        border-radius: 2px;
-        cursor: pointer;
-      }
+      .outer-jumplink {
+        width: calc(1vw + 4px);
+        height: calc(5vh + 4px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-      .active-inner-jumplink{
-        @extend %jumplink;
-        background-color: gray;
-      }
+        %jumplink {
+          width: calc(0.5vw + 4px);
+          height: calc(4vh + 4px);
+          border: 2px solid gray;
+          border-radius: 2px;
+          cursor: pointer;
+        }
 
-      .inactive-inner-jumplink{
-        @extend %jumplink;
-      }
+        .active-inner-jumplink {
+          @extend %jumplink;
+          background-color: gray;
+        }
 
-      .inactive-inner-jumplink:hover{
-        box-shadow: 0 0  0 1px gray;
+        .inactive-inner-jumplink {
+          @extend %jumplink;
+        }
+
+        .inactive-inner-jumplink:hover {
+          box-shadow: 0 0 0 1px gray;
+        }
       }
     }
   }

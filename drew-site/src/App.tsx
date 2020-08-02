@@ -6,11 +6,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Home } from "./Home";
 import { About } from "./About";
 import { Resume } from "./Resume";
+import { ChessGame } from "./chess/ChessGame";
 
 export enum Views {
   Home,
   Resume,
   About,
+  Chess
 }
 
 export interface AppProps {
@@ -23,6 +25,7 @@ function App(props: AppProps) {
   const showHome = () =>  setViewState(Views.Home);
   const showResume = () => setViewState(Views.Resume);
   const showAbout = () => setViewState(Views.About);
+  const showChess = () => setViewState(Views.Chess);
   return (
     <div>
       <nav className="navbar navbar-default navbar-fixed-top">
@@ -56,11 +59,14 @@ function App(props: AppProps) {
               <li className={viewState === Views.Resume ? "active" : ""}>
                 <a onClick={showResume}>Resume</a>
               </li>
+              <li className={viewState === Views.Chess ? "active": ""}>
+                <a onClick={showChess}>Chess</a>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
-      {viewState === Views.Home ? <Home /> : viewState === Views.About ? <About showResume={showResume} />: viewState === Views.Resume ? <Resume /> : <p>In Progress</p>}
+      {viewState === Views.Home ? <Home /> : viewState === Views.About ? <About showResume={showResume} />: viewState === Views.Resume ? <Resume /> : viewState === Views.Chess ? <ChessGame /> : <p>In Progress</p>}
     </div>
   );
 }
