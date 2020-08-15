@@ -7,6 +7,12 @@ import { Home } from "./Home";
 import { About } from "./About";
 import { Resume } from "./Resume";
 import { ChessGame } from "./chess/ChessGame";
+import {
+  Switch,
+  Route,
+  Link,
+  useLocation
+} from "react-router-dom";
 
 export enum Views {
   Home,
@@ -16,58 +22,68 @@ export enum Views {
 }
 
 export interface AppProps {
-  initialState?: Views;
 }
 
 function App(props: AppProps) {
-  const { initialState } = props;
-  const [viewState, setViewState] = useState(initialState ?? Views.Home);
-  const showHome = () =>  setViewState(Views.Home);
-  const showResume = () => setViewState(Views.Resume);
-  const showAbout = () => setViewState(Views.About);
-  const showChess = () => setViewState(Views.Chess);
+  let location = useLocation();
   return (
-    <div>
-      <nav className="navbar navbar-default navbar-fixed-top">
-        <div className="container">
-          <div className="navbar-header">
-            <button
-              type="button"
-              className="navbar-toggle collapsed"
-              data-toggle="collapse"
-              data-target="#navbar"
-              aria-expanded="false"
-              aria-controls="navbar"
-            >
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </button>
-            <a className="navbar-brand" href="" onClick={showHome}>
-              Drew Weissmann
-            </a>
+      <div>
+        <nav className="navbar navbar-default navbar-fixed-top">
+          <div className="container">
+            <div className="navbar-header">
+              <button
+                type="button"
+                className="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#navbar"
+                aria-expanded="false"
+                aria-controls="navbar"
+              >
+                <span className="sr-only">Toggle navigation</span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+              </button>
+              <Link className="navbar-brand" to="/">
+                Drew Weissmann
+              </Link>
+            </div>
+            <div id="navbar" className="navbar-collapse collapse">
+              <ul className="nav navbar-nav">
+                <li className={location.pathname === "/" ? "active" : ""}>
+                  <Link to="/">Home</Link>
+                </li>
+                <li className={location.pathname === "/about" ? "active" : ""}>
+                  <Link to="/about">About</Link>
+                </li>
+                <li className={location.pathname === "/resume" ? "active" : ""}>
+                  <Link to="/resume">Resume</Link>
+                </li>
+                <li className={location.pathname.startsWith("/chess") ? "active": ""}>
+                  <Link to="/chess">Chess</Link>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div id="navbar" className="navbar-collapse collapse">
-            <ul className="nav navbar-nav">
-              <li className={viewState === Views.Home ? "active" : ""}>
-                <a onClick={showHome}>Home</a>
-              </li>
-              <li className={viewState === Views.About ? "active" : ""}>
-                <a onClick={showAbout}>About</a>
-              </li>
-              <li className={viewState === Views.Resume ? "active" : ""}>
-                <a onClick={showResume}>Resume</a>
-              </li>
-              <li className={viewState === Views.Chess ? "active": ""}>
-                <a onClick={showChess}>Chess</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      {viewState === Views.Home ? <Home /> : viewState === Views.About ? <About showResume={showResume} />: viewState === Views.Resume ? <Resume /> : viewState === Views.Chess ? <ChessGame /> : <p>In Progress</p>}
-    </div>
+        </nav>
+        <Switch>
+          <Route exact={true} path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/resume">
+            <Resume />
+          </Route>
+          <Route path="/chess">
+            <ChessGame />
+          </Route>
+          <Route path="*">
+            <p>In Progress</p>
+          </Route>
+        </Switch>
+      </div>
   );
 }
 export default App;
