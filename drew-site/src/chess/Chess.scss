@@ -32,6 +32,7 @@
         .square-highlighted{
             @extend %general-square;
             border-color: blue;
+            border-width: 2px;
             
         }
     }

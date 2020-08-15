@@ -32,8 +32,71 @@ export function ChessGame(props: ChessGameProps){
     positionMap = addPositions(color.black, blackPositions, positionMap);
     const [stateMap, makeBoardMove] = usePositionMap(positionMap);
     const [turn, setTurn] = useState(color.white);
+    const [whiteCanCastleRight, setWCCR] = useState(true);//Tracks whether the king/rooks moved
+    const [whiteCanCastleLeft, setWCCL] = useState(true);
+    const [blackCanCastleRight, setBCCR] = useState(true);
+    const [blackCanCastleLeft, setBCCL] = useState(true);
+    const [enPassantCoord, setEnPassantCoord] = useState("");
     const makeMove = useCallback((start: string, end: string)=>{
-        makeBoardMove(start, end);
+        //En Passant
+        if(stateMap[start].charAt(1) === "p" && Math.abs(parseInt(start.charAt(1)) - parseInt(end.charAt(1))) === 2){
+            setEnPassantCoord(start.charAt(0) + (Math.max(parseInt(start.charAt(1)), parseInt(end.charAt(1))) - 1).toString());
+        }
+        else{
+            setEnPassantCoord("");
+        }
+        //Castle
+        if(start === "E8"){
+            setBCCR(false);
+            setBCCL(false);
+        }
+        else if(start === "A8"){
+            setBCCL(false);
+        }
+        else if(start === "H8"){
+            setBCCR(false);
+        }
+        else if(start === "E1"){
+            setWCCR(false);
+            setWCCL(false);
+        }
+        else if(start === "A1"){
+            setWCCL(false);
+        }
+        else if(start === "H1"){
+            setWCCR(false);
+        }
+        //Make the move
+        if(stateMap[start].charAt(1) === "p" && enPassantCoord === end){
+            if(stateMap[start].charAt(0) === "w"){
+                makeBoardMove(undefined, undefined, [{start: end.charAt(0) + (parseInt(end.charAt(1)) - 1).toString(), end: undefined}, {start: start, end: end}]);
+            }
+            else{
+                makeBoardMove(undefined, undefined, [{start: end.charAt(0) + (parseInt(end.charAt(1)) + 1).toString(), end: undefined }, {start: start, end: end}]);
+            }
+        }
+        else if(start === "E8" && end === "G8"){
+            makeBoardMove(undefined, undefined, [{start: "E8", end:"G8"}, {start: "H8", end: "F8"}])
+        }
+        else if(start === "E8" && end  === "C8"){
+            makeBoardMove(undefined, undefined, [{start: "E8", end:"C8"}, {start: "A8", end: "D8"}])
+        }
+        else if((start === "E1" && end === "G1")){
+            makeBoardMove(undefined, undefined, [{start: "E1", end:"G1"}, {start: "H1", end: "F1"}])
+        }
+        else if(start === "E1" && end === "C1"){
+            makeBoardMove(undefined, undefined, [{start: "E1", end:"C1"}, {start: "A1", end: "D1"}])
+        }
+        else if(stateMap[start].charAt(0) === "w" && stateMap[start].charAt(1) === "p" && end.charAt(1) == "8"){
+            makeBoardMove(start, end, undefined, "wq");
+        }
+        else if(stateMap[start].charAt(0) === "b" && stateMap[start].charAt(1) === "p" && end.charAt(1) == "1"){
+            makeBoardMove(start, end, undefined, "bq");
+        } 
+        else{
+            makeBoardMove(start, end);
+        }
+        //Flip the turn
         if(turn === color.white){
             setTurn(color.black)
         }
@@ -43,7 +106,7 @@ export function ChessGame(props: ChessGameProps){
     }, [turn, makeBoardMove, setTurn])
     return(
         <div className="Chess">
-            <ChessBoard toPlay={turn} positionsMap={stateMap} makeMove={makeMove} />
+            <ChessBoard toPlay={turn} positionsMap={stateMap} makeMove={makeMove} canCastleLeft={turn === color.white ? whiteCanCastleLeft : blackCanCastleRight} canCastleRight={turn === color.white ? whiteCanCastleRight : blackCanCastleRight} EPCoord={enPassantCoord}/>
         </div>
     );
 }
